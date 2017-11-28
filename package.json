@@ -1,0 +1,23 @@
+{
+  "name": "generator-atomic",
+  "version": "0.1.0",
+  "description": "",
+  "files": [
+    "generators",
+    "component"
+  ],
+  "keywords": [
+    "yeoman-generator",
+    "react",
+    "atomic",
+    "atomic design",
+    "atom",
+    "molecule",
+    "organism",
+    "template",
+    "page"
+  ],
+  "dependencies": {
+    "yeoman-generator": "^1.1.1"
+  }
+}
