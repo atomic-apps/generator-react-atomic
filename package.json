@@ -1,6 +1,6 @@
 {
-  "name": "generator-atomic",
-  "version": "0.1.0",
+  "name": "generator-react-atomic",
+  "version": "1.0.0",
   "description": "",
   "files": [
     "generators",
