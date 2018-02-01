@@ -1,7 +1,8 @@
 {
   "name": "generator-react-atomic",
   "version": "1.0.0",
-  "description": "",
+  "description": "Generate React components following the patterns of Atomic Design",
+  "website": "https://github.com/nishacodes/generator-react-atomic",
   "files": [
     "generators",
     "component"
