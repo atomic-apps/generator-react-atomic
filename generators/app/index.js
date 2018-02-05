@@ -10,11 +10,26 @@ module.exports = Generator.extend( {
       type    : 'input',
       name    : 'defaultDirectory',
       message : 'What is the default directory for your React components?',
-      default : 'client/components/'
-    }]).then((response) => {
+      default : 'src/components/core'
+    }, {
+      type    : 'list',
+      name    : 'stylePreference',
+      message : 'Which is your preference for styling components?',
+      choices: [
+        { name: '1) Styled Components',
+          value: 'styledComponents'
+        }, {
+          name: '2) CSS Modules',
+          value: 'cssModules'
+        }
+      ],
+      default : 'styledComponents'
+   }
+  ]).then((response) => {
       this.log(`Great! We will store "${response.defaultDirectory}" as your default directory for your convenience. You can always choose to generate a component into a different directory though.`)
       this.config.set({
-        directory: response.defaultDirectory
+        directory: response.defaultDirectory,
+        stylePreference: response.stylePreference
       })
       this.config.save()
      }
