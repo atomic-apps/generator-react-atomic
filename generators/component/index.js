@@ -1,9 +1,23 @@
 const Generator = require('yeoman-generator');
 const mkdirp = require('mkdirp');
 
+const configPrint = (defaultDirectory)=>{
+    console.log('---DEBUG---')
+    console.log('Dir: ',defaultDirectory)
+    console.log('===========');
+};
+
 module.exports = Generator.extend( {
   create: function () {
-    const defaultDirectory = this.config.get('directory')
+    // dig into the yeomen generator and get a sense of this API
+    const defaultDirectory = this.config.get('directory');
+    const enableStyledComponents = this.config.get('enableStyledComponents');
+
+    // NEXT STEPS HERE
+    // First not having the defaultDirectory set could be bad, so need to figure out how we will force that
+    // Secondly, get better sense of the `this.config.get` api, will be helpful to know as we will want to ask about their styled-component usage
+    configPrint(defaultDirectory)
+
     return this.prompt([{
       type    : 'input',
       name    : 'name',
@@ -36,6 +50,7 @@ module.exports = Generator.extend( {
       message : 'What directory should we create this in?',
       default: defaultDirectory
     }]).then((answers) => {
+
       const componentName = answers.name;
       const componentNameLower = componentName.charAt(0).toLowerCase() + componentName.slice(1);
 
