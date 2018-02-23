@@ -2,11 +2,12 @@ const Generator = require('yeoman-generator');
 const mkdirp = require('mkdirp');
 const prompts = require('../../libs/prompts');
 
+console.log(prompts)
+
 module.exports = Generator.extend( {
   create: function () {
     // Hoist some local-global variables to hand to prompts
     const defaultDirectory = this.config.get('directory')
-
 
     return this.prompt([
 
@@ -18,42 +19,36 @@ module.exports = Generator.extend( {
       prompts.components.componentName(),
       // set `answers.atomicType`
       prompts.components.atomicType(),
+      // set `answers.styledComponentTagType`
+      prompts.components.styledComponentTagType(),
       // set `answers.directory`
       prompts.components.targetDirectory(defaultDirectory)
 
     ]).then((answers) => {
       const componentName = answers.name;
       const componentNameLower = componentName.charAt(0).toLowerCase() + componentName.slice(1);
+      const styledComponentTag = answers.styledComponentTagType;
 
       // Create directory for the component
       const directory = `${answers.directory}/${answers.atomicType}/${answers.name}`;
       mkdirp.sync(directory);
 
+      // For Styleed Components we going to gut this template shit now.
+      // Start with just creating component, delete the scss file, delete the other files once harvested
+
       // Copy over the jsx component file
       // Pages and organisms will have redux connected
       // Templates, molecules and atoms will not
-      if (['pages', 'organisms'].indexOf(answers.type) > -1) {
-        this.fs.copyTpl(
-          this.templatePath('ConnectedComponent.jsx'),
-          this.destinationPath(`${directory}/${componentName}.jsx`),
-          { name: componentName,
-            nameLower: componentNameLower
-          }
-        );
-      } else {
-        this.fs.copyTpl(
-          this.templatePath('PureRenderComponent.jsx'),
-          this.destinationPath(`${directory}/${componentName}.jsx`),
-          { name: componentName,
-            nameLower: componentNameLower
-          }
-        );
-      }
 
-      // Copy over the scss file
+
+
       this.fs.copyTpl(
-        this.templatePath('component.scss'),
-        this.destinationPath(`${directory}/${componentNameLower}.scss`)
+        this.templatePath('StyledComponent.jsx'),
+        this.destinationPath(`${directory}/${componentName}.jsx`),
+        { name: componentName,
+          nameLower: componentNameLower,
+          styledComponentTag: styledComponentTag,
+        }
       );
 
       // Copy over the index.js file
