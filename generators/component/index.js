@@ -7,7 +7,6 @@ module.exports = Generator.extend( {
     // Hoist some local-global variables to hand to prompts
     const defaultDirectory = this.config.get('directory')
 
-
     return this.prompt([
 
       /*
@@ -40,6 +39,7 @@ module.exports = Generator.extend( {
             nameLower: componentNameLower
           }
         );
+      // Templates, Molecules, Atoms generate as PureRender
       } else {
         this.fs.copyTpl(
           this.templatePath('PureRenderComponent.jsx'),
