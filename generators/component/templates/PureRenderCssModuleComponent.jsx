@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import autobind from 'autobind-decorator';
-
+import CSSModules from 'react-css-modules';
+import styles from './<%= nameLower %>.scss';
 
 class <%= name %> extends React.Component {
 
@@ -31,5 +32,6 @@ class <%= name %> extends React.Component {
 }
 
 
+export {<%= name %>};
 
-export default <%= name %>;
+export default CSSModules(<%= name %>, styles);

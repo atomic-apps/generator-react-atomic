@@ -57,6 +57,27 @@ const targetDirectory = function(targetDirectory) {
   return obj;
 }
 
+/*
+ * Prompts to Include React-CSS Module Wrappers
+ */
+const includeReactCss = () => {
+    const obj = {
+        type    : 'list',
+        name    : 'includeReactCss',
+        message : 'Use React-CSS Modules?',
+        choices: [
+          { name: '1) No (default)',
+          value: 'no'
+          }, {
+          name: '2) Yes',
+          value: 'Yes'
+          }
+        ],
+        default : 'no' // Default to current folder name
+    }
+    return obj;
+};
+
 
 // TODO add the special StyledComponent Prompts
 // to get the correct html element
@@ -116,6 +137,7 @@ const styledComponentTagType = () => {
 // ES5 Export
 module.exports = {
   'componentName': componentName,
+  'includeReactCss': includeReactCss,
   'atomicType': atomicType,
   'styledComponentTagType': styledComponentTagType,
   'targetDirectory': targetDirectory
