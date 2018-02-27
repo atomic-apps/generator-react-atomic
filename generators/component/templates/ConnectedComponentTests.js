@@ -1,7 +1,8 @@
 import React from 'react';
 import {shallow} from 'enzyme';
-// Import the raw React Component
-import <%= name %> from '../<%= name %>.jsx';
+// {<%= name %>} using destructuring here assumes you are exporting
+// the raw component here, if you need the default drop the `{}`
+import {<%= name %>} from '../<%= name %>.jsx';
 
 const setup = (propOverrides) => {
   const props = Object.assign({}, propOverrides);
