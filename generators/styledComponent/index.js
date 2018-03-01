@@ -33,15 +33,9 @@ module.exports = Generator.extend( {
       const directory = `${answers.directory}/${answers.atomicType}/${answers.name}`;
       mkdirp.sync(directory);
 
-      // For Styleed Components we going to gut this template shit now.
-      // Start with just creating component, delete the scss file, delete the other files once harvested
-
       // Copy over the jsx component file
       // Pages and organisms will have redux connected
       // Templates, molecules and atoms will not
-
-
-
       this.fs.copyTpl(
         this.templatePath('StyledComponent.jsx'),
         this.destinationPath(`${directory}/${componentName}.jsx`),

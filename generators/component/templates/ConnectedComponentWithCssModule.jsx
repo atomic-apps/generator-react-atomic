@@ -1,8 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import autobind from 'autobind-decorator';
+import CSSModules from 'react-css-modules';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
+import styles from './<%= nameLower %>.scss';
 
 class <%= name %> extends React.Component {
 
@@ -37,7 +39,6 @@ function mapStateToProps(state) {
   };
 }
 
-
 function mapDispatchToProps(dispatch) {
   return {
     dispatch: bindActionCreators({}, dispatch)
@@ -47,6 +48,8 @@ function mapDispatchToProps(dispatch) {
 
 export {<%= name %>};
 
+const styledComponent = CSSModules(<%= name %>, styles);
+export {styledComponent as styledComponent};
 
-const connectedComponent = connect(mapStateToProps, mapDispatchToProps)(<%= name %>);
+const connectedComponent = connect(mapStateToProps, mapDispatchToProps)(styledComponent);
 export default connectedComponent;
