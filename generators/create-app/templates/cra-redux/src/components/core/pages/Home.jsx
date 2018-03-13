@@ -20,8 +20,10 @@ class Home extends Component {
   render() {
     return(
       <div>
-        <h1 onClick={this.sampleAction.bind(this)}>Home</h1>
-        {this.props.sampleCount}
+        <h1>Home</h1>
+        <span onClick={this.sampleAction.bind(this)}>
+          Counter: {this.props.sampleCount}
+        </span>
       </div>
     );
   }
