@@ -1,10 +1,10 @@
 // Component/StyledComponent prompts
-const componentPrompts = require('./components');
-// createApp prompots
-//const createAppPrompts = require('./createApp');
+const componentPrompts = require('./component');
+// createApp prompts
+const createAppPrompts = require('./create-app');
 
 // ES5 Export
 module.exports = {
-  'components': componentPrompts,
-  //'createApp': createAppPrompts,
+  'component': componentPrompts,
+  'createApp': createAppPrompts,
 }

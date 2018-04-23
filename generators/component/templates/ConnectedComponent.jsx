@@ -4,7 +4,7 @@ import autobind from 'autobind-decorator';
 import CSSModules from 'react-css-modules';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import styles from './<%= nameLower %>.scss';
+import styles from './<%= nameLower %>.module.css';
 
 class <%= name %> extends React.Component {
 
@@ -48,8 +48,5 @@ function mapDispatchToProps(dispatch) {
 
 export {<%= name %>};
 
-const styledComponent = CSSModules(<%= name %>, styles);
-export {styledComponent as styledComponent};
-
-const connectedComponent = connect(mapStateToProps, mapDispatchToProps)(styledComponent);
+const connectedComponent = connect(mapStateToProps, mapDispatchToProps)(<%= name %>);
 export default connectedComponent;
