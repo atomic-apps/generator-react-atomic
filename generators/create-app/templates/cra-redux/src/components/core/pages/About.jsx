@@ -6,7 +6,7 @@ import { connect } from 'react-redux'
 
 const About = props => (
   <div>
-    <h1>About</h1>
+    <h1 className="page-title">About</h1>
   </div>
 )
 

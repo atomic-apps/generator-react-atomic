@@ -5,6 +5,7 @@ import { ConnectedRouter } from 'react-router-redux'
 import store, { history } from './reducers/store'
 import App from './components/core/app/App'
 import registerServiceWorker from './registerServiceWorker';
+import './index.css'
 
 const target = document.querySelector('#root')
 
