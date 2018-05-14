@@ -1,17 +1,11 @@
-import React, {Component, PropTypes} from 'react';
-import { push } from 'react-router-redux'
+import React, {Component} from 'react';
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import autobind from 'autobind-decorator';
 import {
   sampleAction
 } from '../../../reducers/sample/actions'
 
 class Home extends Component {
-
-  constructor(props) {
-    super(props);
-  }
 
   sampleAction() {
     this.props.dispatch.sampleAction()
