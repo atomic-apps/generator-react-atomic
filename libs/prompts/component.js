@@ -47,11 +47,11 @@ const atomicType = () => {
  * Used to map a prompt to get the TargetDirect where the template generation will occur
  */
 const targetDirectory = function(targetDirectory) {
-  const defaultDirectory = (targetDirectory)? targetDirectory:'';
+  const defaultDirectory = (targetDirectory) ? targetDirectory : 'src/components/core';
   const obj = {
     type    : 'input',
     name    : 'directory',
-    message : 'What directory should we create this in?',
+    message : 'Which directory should we create this in?',
     default: defaultDirectory
   };
   return obj;

@@ -9,17 +9,16 @@ module.exports = Generator.extend( {
 
 
     return this.prompt([
-
       /*
        * Use functional wrappers for prompts so we can test them
        * And they can be composable within our other generators
        */
       // sets `answers.name`
-      prompts.components.componentName(),
+      prompts.component.componentName(),
       // set `answers.atomicType`
-      prompts.components.atomicType(),
+      prompts.component.atomicType(),
       // set `answers.directory`
-      prompts.components.targetDirectory(defaultDirectory)
+      prompts.component.targetDirectory(defaultDirectory)
 
     ]).then((answers) => {
       const componentName = answers.name;
@@ -28,7 +27,6 @@ module.exports = Generator.extend( {
       // Create directory for the component
       const directory = `${answers.directory}/${answers.atomicType}/${answers.name}`;
       mkdirp.sync(directory);
-
       // Copy over the jsx component file
       // Pages and organisms will have redux connected
       // Templates, molecules and atoms will not
@@ -50,10 +48,10 @@ module.exports = Generator.extend( {
         );
       }
 
-      // Copy over the scss file
+      // Copy over the css file
       this.fs.copyTpl(
-        this.templatePath('component.scss'),
-        this.destinationPath(`${directory}/${componentNameLower}.scss`)
+        this.templatePath('component.module.css'),
+        this.destinationPath(`${directory}/${componentNameLower}.module.css`)
       );
 
       // Copy over the index.js file
