@@ -30,7 +30,11 @@ module.exports = Generator.extend( {
       // Copy over the jsx component file
       // Pages and organisms will have redux connected
       // Templates, molecules and atoms will not
-      if (['pages', 'organisms'].indexOf(answers.type) > -1) {
+      /*
+       *  All Components comes with CSS-Modules enabled & Wrapped
+       *  Only Organisms & Pages come with Both Connected(redux) & CSS-Modules
+       */
+      if (['pages', 'organisms'].indexOf(answers.atomicType) > -1) {
         this.fs.copyTpl(
           this.templatePath('ConnectedComponent.jsx'),
           this.destinationPath(`${directory}/${componentName}.jsx`),
@@ -38,6 +42,14 @@ module.exports = Generator.extend( {
             nameLower: componentNameLower
           }
         );
+
+        // Copy over the tests file
+        this.fs.copyTpl(
+          this.templatePath('ConnectedComponentTests.js'),
+          this.destinationPath(`${directory}/__tests__/${componentName}.tests.js`),
+          { name: componentName}
+        );
+
       } else {
         this.fs.copyTpl(
           this.templatePath('PureRenderComponent.jsx'),
@@ -46,9 +58,19 @@ module.exports = Generator.extend( {
             nameLower: componentNameLower
           }
         );
+
+        // Copy over the tests file
+        this.fs.copyTpl(
+          this.templatePath('ComponentTests.js'),
+          this.destinationPath(`${directory}/__tests__/${componentName}.tests.js`),
+          { name: componentName}
+        );
       }
 
-      // Copy over the css file
+      ///////////////////
+      // Always do the following
+      ///////////////////
+      // Copy over a css-module file
       this.fs.copyTpl(
         this.templatePath('component.module.css'),
         this.destinationPath(`${directory}/${componentNameLower}.module.css`)
@@ -61,12 +83,7 @@ module.exports = Generator.extend( {
         { name: componentName}
       );
 
-      // Copy over the tests file
-      this.fs.copyTpl(
-        this.templatePath('ComponentTests.js'),
-        this.destinationPath(`${directory}/__tests__/${componentName}.tests.js`),
-        { name: componentName}
-      );
+
     });
   }
 });

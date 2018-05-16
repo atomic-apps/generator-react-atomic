@@ -4,9 +4,9 @@ import CSSModules from 'react-css-modules';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 // React-Scripts / CRA is expecting your CSS-Modules to follow this pattern
-import styles from './<%= nameLower %>.module.css';
+import styles from './about.module.css';
 
-class <%= name %> extends React.Component {
+class About extends React.Component {
 
   /**
    *
@@ -25,13 +25,15 @@ class <%= name %> extends React.Component {
   }
 
   render() {
-    return (
-      <div />
+    return(
+      <div>
+        <h1 className="page-title">About</h1>
+      </div>
     );
   }
 }
 
-<%= name %>.propTypes = {
+About.propTypes = {
   /*
    * Insert prop types here. For documentation, check out:
    * https://reactjs.org/docs/typechecking-with-proptypes.html
@@ -51,8 +53,8 @@ function mapDispatchToProps(dispatch) {
 }
 
 
-export {<%= name %>};
+export {About};
 
-const connectedComponent = connect(mapStateToProps, mapDispatchToProps)(<%= name %>);
+const connectedComponent = connect(mapStateToProps, mapDispatchToProps)(About);
 
 export default connectedComponent;

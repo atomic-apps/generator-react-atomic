@@ -4,9 +4,14 @@ import CSSModules from 'react-css-modules';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 // React-Scripts / CRA is expecting your CSS-Modules to follow this pattern
-import styles from './<%= nameLower %>.module.css';
+import styles from './home.module.css';
 
-class <%= name %> extends React.Component {
+// load our sample reducers
+import {
+  sampleAction
+} from '../../../../reducers/sample/actions'
+
+class Home extends React.Component {
 
   /**
    *
@@ -24,35 +29,44 @@ class <%= name %> extends React.Component {
      */
   }
 
+  sampleAction() {
+    this.props.dispatch.sampleAction()
+  }
+
   render() {
-    return (
-      <div />
+    return(
+      <div>
+        <h1 className="page-title">Home</h1>
+        <span onClick={this.sampleAction.bind(this)}>
+          Counter: {this.props.sampleCount}
+        </span>
+      </div>
     );
   }
 }
 
-<%= name %>.propTypes = {
+Home.propTypes = {
   /*
    * Insert prop types here. For documentation, check out:
    * https://reactjs.org/docs/typechecking-with-proptypes.html
    */
 }
 
-function mapStateToProps(state) {
-  return {
+const mapStateToProps = state => ({
+  sampleCount: state.sample.sampleCount
+})
 
+const mapDispatchToProps = dispatch => {
+  return {
+    dispatch: bindActionCreators({
+      sampleAction
+    }, dispatch)
   };
 }
 
-function mapDispatchToProps(dispatch) {
-  return {
-    dispatch: bindActionCreators({}, dispatch)
-  };
-}
 
+export {Home};
 
-export {<%= name %>};
-
-const connectedComponent = connect(mapStateToProps, mapDispatchToProps)(<%= name %>);
+const connectedComponent = connect(mapStateToProps, mapDispatchToProps)(Home);
 
 export default connectedComponent;

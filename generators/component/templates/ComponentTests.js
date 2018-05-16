@@ -1,7 +1,10 @@
 import React from 'react';
 import {shallow} from 'enzyme';
-import {<%= name %>} from '../<%= name %>.jsx';
 
+// Import the raw React Component
+import <%= name %> from '../<%= name %>.jsx';
+
+// Dependency Injection Setup method to bind enzyme, react-test-utils onto a react-component (container)
 const setup = (propOverrides) => {
   const props = Object.assign({}, propOverrides);
   const wrapper = shallow(<<%= name %> {...props} />);
@@ -12,7 +15,9 @@ const setup = (propOverrides) => {
   };
 };
 
+// Test Cases
 describe('<<%= name %> />', () => {
+
   it('renders with default props', () => {
     const { wrapper } = setup();
     expect(wrapper.exists()).toBe(true);
@@ -24,6 +29,6 @@ describe('<<%= name %> />', () => {
     expect(divs.length).toBeGreaterThan(0);
   });
 
-  // More tests here
+  // Please write your own test below
 
 });

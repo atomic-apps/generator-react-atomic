@@ -90,4 +90,4 @@ Pages are big sections of your app that typically contain several organisms. The
 
 
 ## Testing
-[TODO]
+Testing is implemented using the standard JEST-Cli interface exposed from Create React App. However, we've added airbnb's `Enzyme` to the testing runner.  TODO write followup documentation

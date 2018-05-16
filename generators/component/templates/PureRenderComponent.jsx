@@ -1,14 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import autobind from 'autobind-decorator';
 import CSSModules from 'react-css-modules';
+// React-Scripts / CRA is expecting your CSS-Modules to follow this pattern
 import styles from './<%= nameLower %>.module.css';
 
 class <%= name %> extends React.Component {
 
+  /**
+   *
+   * optional constructor if needed to set initial state
+   *
   constructor(props) {
     super(props);
   }
+  */
 
   static defaultProps = {
     /*
@@ -31,5 +36,5 @@ class <%= name %> extends React.Component {
    */
 }
 
-
+// Export Component
 export default <%= name %>;
