@@ -1,13 +1,17 @@
 import React from 'react';
 import {shallow} from 'enzyme';
 
-// Import the raw React Component
-import <%= name %> from '../<%= name %>.jsx';
+// {About} using destructuring here assumes you are exporting
+// the raw component here (without connected/css-modules), if you need the default drop the `{}`
+import About from '../About.jsx';
 
-// Dependency Injection Setup method to bind enzyme, react-test-utils onto a react-component (container)
+
+// Dependency Injection Setup method to bind enzyme, react-test-utils, and redux all together
+// onto a react-component (container)
 const setup = (propOverrides) => {
+
   const props = Object.assign({}, propOverrides);
-  const wrapper = shallow(<<%= name %> {...props} />);
+  const wrapper = shallow(<About {...props} />);
 
   return {
     props,
@@ -16,7 +20,7 @@ const setup = (propOverrides) => {
 };
 
 // Test Cases
-describe('<<%= name %> />', () => {
+describe('<About />', () => {
 
   it('renders with default props', () => {
     const { wrapper } = setup();

@@ -1,16 +1,21 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import autobind from 'autobind-decorator';
 import CSSModules from 'react-css-modules';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
+// React-Scripts / CRA is expecting your CSS-Modules to follow this pattern
 import styles from './<%= nameLower %>.module.css';
 
 class <%= name %> extends React.Component {
 
+  /**
+   *
+   * optional constructor if needed to set initial state
+   *
   constructor(props) {
     super(props);
   }
+  */
 
   static defaultProps = {
     /*
@@ -49,4 +54,5 @@ function mapDispatchToProps(dispatch) {
 export {<%= name %>};
 
 const connectedComponent = connect(mapStateToProps, mapDispatchToProps)(<%= name %>);
+
 export default connectedComponent;

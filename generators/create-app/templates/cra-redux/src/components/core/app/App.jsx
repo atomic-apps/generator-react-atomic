@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Route, Link } from 'react-router-dom'
-import Home from '../pages/Home'
-import About from '../pages/About'
+import Home from '../pages/Home/Home'
+import About from '../pages/About/About'
 import styles from './app.module.css'
 
 /** This component gets mounted from the main index.js **/
