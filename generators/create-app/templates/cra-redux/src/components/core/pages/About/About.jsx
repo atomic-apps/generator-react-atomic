@@ -1,10 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import CSSModules from 'react-css-modules';
-import {connect} from 'react-redux';
-import {bindActionCreators} from 'redux';
-// React-Scripts / CRA is expecting your CSS-Modules to follow this pattern
-import styles from './about.module.css';
 
 class About extends React.Component {
 
@@ -40,21 +34,6 @@ About.propTypes = {
    */
 }
 
-function mapStateToProps(state) {
-  return {
-
-  };
-}
-
-function mapDispatchToProps(dispatch) {
-  return {
-    dispatch: bindActionCreators({}, dispatch)
-  };
-}
 
 
-export {About};
-
-const connectedComponent = connect(mapStateToProps, mapDispatchToProps)(About);
-
-export default connectedComponent;
+export default About;

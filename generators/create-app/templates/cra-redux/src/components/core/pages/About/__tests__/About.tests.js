@@ -3,24 +3,14 @@ import {shallow} from 'enzyme';
 
 // {About} using destructuring here assumes you are exporting
 // the raw component here (without connected/css-modules), if you need the default drop the `{}`
-import {About} from '../About.jsx';
-
-// For any redux action create a corresponding mock
-const fetchMockData = jest.fn()
+import About from '../About.jsx';
 
 
 // Dependency Injection Setup method to bind enzyme, react-test-utils, and redux all together
 // onto a react-component (container)
 const setup = (propOverrides) => {
 
-  // Mock dispatch functions for redux
-  const dispatchProps = {
-    dispatch: {
-      fetchMockData: fetchMockData,
-    }
-  }
-
-  const props = Object.assign({}, dispatchProps, propOverrides);
+  const props = Object.assign({}, propOverrides);
   const wrapper = shallow(<About {...props} />);
 
   return {
