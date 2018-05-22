@@ -33,6 +33,6 @@ describe('<About />', () => {
     expect(divs.length).toBeGreaterThan(0);
   });
 
-  // Please write your own test below
+  // Please write your own tests below
 
 });

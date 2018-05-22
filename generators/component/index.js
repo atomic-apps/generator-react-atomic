@@ -9,10 +9,9 @@ module.exports = Generator.extend( {
 
 
     return this.prompt([
-      /*
-       * Use functional wrappers for prompts so we can test them
-       * And they can be composable within our other generators
-       */
+      // Use functional wrappers for prompts so we can test them
+      // And they can be composable within our other generators
+
       // sets `answers.name`
       prompts.component.componentName(),
       // set `answers.atomicType`
@@ -27,14 +26,13 @@ module.exports = Generator.extend( {
       // Create directory for the component
       const directory = `${answers.directory}/${answers.atomicType}/${answers.name}`;
       mkdirp.sync(directory);
-      // Copy over the jsx component file
-      // Pages and organisms will have redux connected
-      // Templates, molecules and atoms will not
-      /*
-       *  All Components comes with CSS-Modules enabled & Wrapped
-       *  Only Organisms & Pages come with Both Connected(redux) & CSS-Modules
-       */
+      // Below we will copy over the appropriate component, CSS module, and test files
+      // All components come with CSS Modules enabled
+      // Pages and organisms will have Redux connected -- templates, molecules and atoms will not
+
+      // For Organisms and Pages, use the ConnectedComponent.jsx and ConnectedComponentTests.js templates
       if (['pages', 'organisms'].indexOf(answers.atomicType) > -1) {
+        // Copy over the component file
         this.fs.copyTpl(
           this.templatePath('ConnectedComponent.jsx'),
           this.destinationPath(`${directory}/${componentName}.jsx`),
@@ -50,7 +48,9 @@ module.exports = Generator.extend( {
           { name: componentName}
         );
 
+      // For Atoms, Molecules and Templates, use the PureRenderComponent and ComponentTests.js templates
       } else {
+        // Copy over the component file
         this.fs.copyTpl(
           this.templatePath('PureRenderComponent.jsx'),
           this.destinationPath(`${directory}/${componentName}.jsx`),
@@ -67,23 +67,18 @@ module.exports = Generator.extend( {
         );
       }
 
-      ///////////////////
-      // Always do the following
-      ///////////////////
-      // Copy over a css-module file
+      // For ALL components, copy over the CSS Modules file
       this.fs.copyTpl(
         this.templatePath('component.module.css'),
         this.destinationPath(`${directory}/${componentNameLower}.module.css`)
       );
 
-      // Copy over the index.js file
+      // For ALL components, copy over the index.js file
       this.fs.copyTpl(
         this.templatePath('index.js'),
         this.destinationPath(`${directory}/index.js`),
         { name: componentName}
       );
-
-
     });
   }
 });

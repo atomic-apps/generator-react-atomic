@@ -6,10 +6,9 @@ const chalk = require('chalk');
 module.exports = Generator.extend( {
   create: function () {
     return this.prompt([
-       /*
-       * Use functional wrappers for prompts so we can test them
-       * And they can be composable within our other generators
-       */
+      // Use functional wrappers for prompts so we can test them
+      // And they can be composable within our other generators
+      
       // sets `answers.name`
       prompts.createApp.name(),
       // set `answers.confirmation`
