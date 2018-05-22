@@ -1,7 +1,8 @@
 # generator-react-atomic
 > A [Yeoman](http://yeoman.io) generator for [React](http://facebook.github.io/react/) apps and components following the patterns of [Atomic Design](http://bradfrost.com/blog/post/atomic-web-design/)
 
-[![Node version](https://img.shields.io/node/v/[generator-react-atomic].svg?style=flat)](http://nodejs.org/download/)
+[![npm](https://img.shields.io/npm/v/npm.svg)](https://www.npmjs.com/package/generator-react-atomic)
+
 
 
 ## Introduction
@@ -125,7 +126,7 @@ Organisms are more complex in nature. They tend to be composed of several molecu
 #### Templates
 Templates are used primarily for layouts. They are typically skeletons to place other elements in certain positions. Think about a two column layout, or a grid system. These components are not connected to state and should be reusable given a set of props.
 
-#### Pages 
+#### Pages
 Pages are big sections of your app that typically contain several organisms. These are also connected to state, which may or may not be necessary depending on the use case. Pages are the highest level element and might often use templates to lay out organisms and molecules.
 
 

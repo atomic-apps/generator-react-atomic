@@ -5,7 +5,7 @@ import {bindActionCreators} from 'redux';
 // load our sample reducers
 import {
   sampleAction
-} from '../../../../reducers/sample/actions'
+} from '../../../../actions/sampleApp/sampleActions'
 
 class Home extends React.Component {
 
