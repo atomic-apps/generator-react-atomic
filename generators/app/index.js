@@ -1,38 +1,15 @@
 const Generator = require('yeoman-generator');
 const mkdirp = require('mkdirp');
+const chalk = require('chalk');
+
 
 module.exports = Generator.extend( {
   init: function() {
-    this.log("\n Welcome! Thanks for using the React Atomic Yeoman Generator. Real quick, let's get you set up...")
-  },
-  setup: function() {
-     return this.prompt([{
-      type    : 'input',
-      name    : 'defaultDirectory',
-      message : 'What is the default directory for your React components?',
-      default : 'src/components/core'
-    }, {
-      type    : 'list',
-      name    : 'stylePreference',
-      message : 'Which is your preference for styling components?',
-      choices: [
-        { name: '1) Styled Components',
-          value: 'styledComponents'
-        }, {
-          name: '2) CSS Modules',
-          value: 'cssModules'
-        }
-      ],
-      default : 'styledComponents'
-   }
-  ]).then((response) => {
-      this.log(`Great! We will store "${response.defaultDirectory}" as your default directory for your convenience. You can always choose to generate a component into a different directory though.`)
-      this.config.set({
-        directory: response.defaultDirectory,
-        stylePreference: response.stylePreference
-      })
-      this.config.save()
-     }
-    )
+    this.log("\n Welcome! Thanks for using the React Atomic Yeoman Generator.")
+    this.log(" You can now generate fully functional React apps and components which follow the principles of Atomic Design.")
+    this.log("\n To get started, generate a new app with the following command:")
+    this.log(chalk.bold.yellow("\n yo react-atomic:create-app"))
+    this.log("\n For more information, please check out the full documentation at https://github.com/atomic-apps/generator-react-atomic")
+    this.log(" Enjoy!\n \n ")
   }
 });

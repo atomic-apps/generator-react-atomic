@@ -19,6 +19,7 @@
     "page"
   ],
   "dependencies": {
+    "chalk": "^2.4.1",
     "yeoman-generator": "^1.1.1"
   }
 }
