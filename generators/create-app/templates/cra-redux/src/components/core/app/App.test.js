@@ -1,8 +1,6 @@
 import React from 'react';
 import {shallow} from 'enzyme';
-// Import the App React Component
-import App from './App.jsx';
-
+import App from './App.jsx'; // Import the App React Component
 
 const setup = (propOverrides) => {
 
@@ -28,6 +26,6 @@ describe('<App />', () => {
     expect(divs.length).toBeGreaterThan(0);
   });
 
-  // Please write your own test below
+  // Please write your own tests below
 
 });

@@ -1,13 +1,13 @@
-import React from 'react';
+import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 
 // load our sample reducers
 import {
   sampleAction
-} from '../../../../reducers/sample/actions'
+} from '../../../../actions/sampleApp/sampleActions'
 
-class Home extends React.Component {
+class Home extends Component {
 
   /**
    *

@@ -1,16 +1,14 @@
 import React from 'react';
 import {shallow} from 'enzyme';
-
-// {<%= name %>} using destructuring here assumes you are exporting
-// the raw component here (without connected/css-modules), if you need the default drop the `{}`
 import {<%= name %>} from '../<%= name %>.jsx';
 
-// For any redux action create a corresponding mock
+// For any Redux action create a corresponding mock
+// For more information on mocking functions, check out the Jest docs: https://facebook.github.io/jest/docs/en/mock-functions.html
 const fetchMockData = jest.fn()
 
 
-// Dependency Injection Setup method to bind enzyme, react-test-utils, and redux all together
-// onto a react-component (container)
+// Setup utility method intended to run before each test. 
+// Here you can override props, mock functions, as well as return a shallow version of the component.
 const setup = (propOverrides) => {
 
   // Mock dispatch functions for redux
@@ -43,6 +41,6 @@ describe('<<%= name %> />', () => {
     expect(divs.length).toBeGreaterThan(0);
   });
 
-  // Please write your own test below
+  // Please write your own tests below
 
 });

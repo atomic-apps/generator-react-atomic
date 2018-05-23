@@ -4,7 +4,9 @@ import {shallow} from 'enzyme';
 // Import the raw React Component
 import <%= name %> from '../<%= name %>.jsx';
 
-// Dependency Injection Setup method to bind enzyme, react-test-utils onto a react-component (container)
+// Setup utility method intended to run before each test. 
+// Here you can override props and return a shallow version of the component.
+// For more information on shallow rendering, check out the Enzyme docs: https://github.com/airbnb/enzyme/blob/master/docs/api/shallow.md
 const setup = (propOverrides) => {
   const props = Object.assign({}, propOverrides);
   const wrapper = shallow(<<%= name %> {...props} />);
@@ -29,6 +31,6 @@ describe('<<%= name %> />', () => {
     expect(divs.length).toBeGreaterThan(0);
   });
 
-  // Please write your own test below
+  // Please write your own tests below
 
 });

@@ -4,7 +4,7 @@ import Home from '../pages/Home/Home'
 import About from '../pages/About/About'
 import styles from './app.module.css'
 
-/** This component gets mounted from the main index.js **/
+/** This component gets mounted from src/index.js **/
 class App extends Component {
   render() {
     return (

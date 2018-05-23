@@ -1,6 +1,6 @@
 import {
   SAMPLE_ACTION
-} from './constants';
+} from '../../actions/sampleApp/constants';
 
 const initialState = {
   sampleCount: 0

@@ -1,14 +1,14 @@
 const Generator = require('yeoman-generator');
 const mkdirp = require('mkdirp');
 const prompts = require('../../libs/prompts');
+const chalk = require('chalk');
 
 module.exports = Generator.extend( {
   create: function () {
     return this.prompt([
-       /*
-       * Use functional wrappers for prompts so we can test them
-       * And they can be composable within our other generators
-       */
+      // Use functional wrappers for prompts so we can test them
+      // And they can be composable within our other generators
+      
       // sets `answers.name`
       prompts.createApp.name(),
       // set `answers.confirmation`
@@ -43,8 +43,8 @@ module.exports = Generator.extend( {
 
     this.log("\n");
     this.log("Your app is ready! To get started, cd into your new app directory and run the commands below. Check out the Readme for more helpful tips.\n");
-    this.log(" $ npm install" + "\n");
-    this.log(" $ npm start" + "\n ");
+    this.log(chalk.bold.yellow(" $ yarn install" + "\n"))
+    this.log(chalk.bold.yellow(" $ yarn start" + "\n"))
     this.log("You are all set. Enjoy! \n");
   }
 });
